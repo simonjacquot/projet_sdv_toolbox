@@ -1,8 +1,9 @@
-  Téléchargement :
+  #Téléchargement :
 git clone https://github.com/simonjacquot/projet_sdv_toolbox.git
 cd projet_sdv_toolbox
 
-  Prérequis :
+  #Prérequis :
+#Utiliser une nouvelle VM KALI : https://www.kali.org/get-kali/#kali-virtual-machines
 sudo apt update
 sudo apt upgrade
 
