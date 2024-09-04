@@ -1,0 +1,35 @@
+# Pour les requêtes HTTP
+requests
+
+# Pour exécuter des commandes shell externes
+subprocess-run
+
+# Pour l'analyse des fichiers CSV
+pandas
+
+# Pour le scan Wapiti
+wapiti3
+
+# Pour gérer les chemins de fichiers et autres utilitaires
+pathlib
+
+# Pour l'exécution des scans Nmap en Python
+python-nmap
+
+# Pour la gestion des mots de passe (utilisé pour corriger l'erreur bcrypt)
+bcrypt==3.2.0
+passlib
+
+# Pour la mise à jour de setuptools et pip (si nécessaire)
+setuptools
+
+# Pour le serveur web
+flask
+pandas
+matplotlib
+plotly
+WeasyPrint
+pdfkit
+
+# Pour metasploit
+pymetasploit3

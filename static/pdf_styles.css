@@ -1,0 +1,225 @@
+/* Style général du corps */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour le conteneur principal */
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Style de l'en-tête */
+header {
+    background-color: #34495e;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #333 3px solid;
+    text-align: center;
+}
+
+header .logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+
+header p {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Style pour les sections */
+section {
+    margin: 20px 0;
+}
+
+h2 {
+    background-color: #34495e;
+    color: #ffffff;
+    padding: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Style pour le résumé des résultats */
+.summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.summary-item {
+    background-color: #ecf0f1;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.summary-item h3 {
+    margin-top: 0;
+}
+
+.summary-item p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Style général pour les tableaux */
+table {
+    width: 100%; /* S'assurer que le tableau s'ajuste à la page */
+    margin: 20px auto; 
+    border-collapse: collapse;
+    table-layout: fixed; /* Les colonnes sont ajustées pour que le tableau s'adapte */
+    word-wrap: break-word; /* Permet de couper les mots trop longs */
+}
+
+th, td {
+    padding: 8px; /* Réduire le padding pour économiser de l'espace */
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 12px; /* Réduire la taille de police */
+}
+
+th {
+    background-color: #34495e;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) td {
+    background-color: #e9ecef;
+}
+
+table.wide {
+    font-size: 10px; /* Taille de police encore plus petite pour les grands tableaux */
+}
+
+td.wide, th.wide {
+    padding: 6px; /* Réduire davantage le padding */
+}
+
+/* Empêcher la coupure des tableaux entre les pages */
+table, tr, td, th {
+    page-break-inside: avoid; /* Empêche la coupure du tableau */
+    page-break-after: auto;
+}
+
+/* Empêcher la séparation des titres et des tableaux */
+h3 {
+    page-break-after: avoid; /* Évite une coupure après les titres */
+    page-break-inside: avoid; /* Empêche la coupure du titre entre deux pages */
+}
+
+table {
+    page-break-before: auto; /* Permet de commencer un tableau sur une nouvelle page si nécessaire */
+    page-break-after: auto;
+}
+
+/* Style du pied de page */
+footer {
+    background-color: #34495e;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Masquer les éléments spécifiques lors de l'impression ou de la génération de PDF */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    header, footer {
+        background-color: white;
+        color: black;
+    }
+
+    table {
+        width: 100%; 
+    }
+
+    button {
+        display: none; /* Masquer le bouton lors de l'impression ou PDF */
+    }
+
+    .print-button {
+        display: none; /* Masquer le bouton d'impression dans le PDF */
+    }
+}
+
+/* Bouton d'impression */
+.print-button {
+    display: bnone;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.print-button:hover {
+    background-color: #2c3e50;
+}
+
+#chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Centrer horizontalement et ajouter un peu d'espace autour */
+    max-width: 100%; /* S'assurer que le graphique ne dépasse pas de la page */
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 100%;
+}

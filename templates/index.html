@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport toolbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.supdevinci.fr/logo-SupdeVinci.png" alt="Logo de l'équipe" class="logo">
+            <h1>Rapport de Sécurité</h1>
+            <p><strong>Date:</strong> {{ current_date }}</p> <!-- La date actuelle est affichée ici -->
+            <button class="print-button" onclick="generatePDF()">Télécharger en PDF</button>
+        </div>
+    </header>
+
+    <section>
+        <h2>Résumé des Résultats</h2>
+        <div class="summary">
+            <div class="summary-item">
+                <h3>Vulnérabilités trouvées</h3>
+                <p>{{ summary_data['cve_cwe'] if summary_data else 'Chargement...' }}</p>
+            </div>
+            <div class="summary-item">
+                <h3>Ports ouverts scannés</h3>
+                <p>{{ summary_data['ports'] if summary_data else 'Chargement...' }}</p>
+            </div>
+            <div class="summary-item">
+                <h3>Brute Force réussis</h3>
+                <p>{{ summary_data['bruteforce'] if summary_data else 'Chargement...' }}</p>
+            </div>
+        </div>
+
+        <div id="exploit-chart" class="chart-container">
+            <!-- Le camembert des résultats d'exploitation sera inséré ici via JavaScript -->
+        </div>
+    </section>
+
+    <section>
+        <h2>Détails des Résultats</h2>
+        {% for file_name, df in csv_files.items() %}
+        <h3>{{ file_name }}</h3>
+        <table>
+            <thead>
+                <tr>
+                    {% for col in df.columns %}
+                    <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in df.iterrows() %}
+                <tr>
+                    {% for col in df.columns %}
+                    <td>{{ row[col] }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endfor %}
+        
+        {% if exploit_results is not none %}
+        <h3>8- Exploitation CVE / CWE</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>CVE/CWE</th>
+                    <th>Module</th>
+                    <th>Type</th>
+                    <th>Résultat</th>
+                    <th>Données sensibles</th>
+                    <th>Mesures de sécurité</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in exploit_results.iterrows() %}
+                <tr>
+                    <td>{{ row['CVE/CWE'] }}</td>
+                    <td>{{ row['Module'] }}</td>
+                    <td>{{ row['Type'] }}</td>
+                    <td>{{ row['Résultat'] }}</td>
+                    <td>{{ row['Données sensibles'] }}</td>
+                    <td>{{ row['Mesures de sécurité'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        <div id="chart" class="chart-container">
+            <!-- Un graphique en barres ou autres sera inséré ici via JavaScript -->
+        </div>
+    </section>
+
+    <footer>
+        <p>Confidentiel - Ne pas distribuer sans autorisation</p>
+    </footer>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        const success_count = {{ exploit_summary['success'] if exploit_summary else 0 }};
+        const fail_count = {{ exploit_summary['fail'] if exploit_summary else 0 }};
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script>
+        function generatePDF() {
+            const originalStylesheet = document.querySelector('link[rel="stylesheet"]');
+            const pdfStylesheet = document.createElement('link');
+            pdfStylesheet.rel = 'stylesheet';
+            pdfStylesheet.href = "{{ url_for('static', filename='pdf_styles.css') }}";
+            
+            document.head.appendChild(pdfStylesheet);
+            originalStylesheet.disabled = true;
+
+            setTimeout(() => {
+                window.print();
+                document.head.removeChild(pdfStylesheet);
+                originalStylesheet.disabled = false;
+            }, 500);
+        }
+    </script>
+</body>
+</html>

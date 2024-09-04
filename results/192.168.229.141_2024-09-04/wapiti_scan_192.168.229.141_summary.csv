@@ -1,0 +1,8 @@
+Category,Module,Path,Parameter,Info,WSTG Reference,HTTP Request
+Content Security Policy Configuration,,/,,CSP is not set,,
+HTTP Secure Headers,,/,,X-Frame-Options is not set,,
+HTTP Secure Headers,,/,,X-XSS-Protection is not set,,
+HTTP Secure Headers,,/,,X-Content-Type-Options is not set,,
+HTTP Secure Headers,,/,,Strict-Transport-Security is not set,,
+Secure Flag cookie,,/,,Secure flag is not set in the cookie : security,,
+Secure Flag cookie,,/,,Secure flag is not set in the cookie : PHPSESSID,,
