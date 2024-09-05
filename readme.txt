@@ -25,7 +25,7 @@
 projet_sdv_toolbox/				                  # Répertoire racine du projet
 ├── static/                        				  # Dossier pour les fichiers statiques (CSS, JS, images)
 │   ├── style.css                  				  # Feuille de style pour la mise en forme de l'interface web
-│   ├── pdf_style.css                  			  # Feuille de style pour la mise en forme du pdf
+│   ├── pdf_style.css                  			          # Feuille de style pour la mise en forme du pdf
 │   └── script.js                  				  # Fichier JavaScript pour les fonctionnalités dynamiques du tableau de bord
 ├── templates/                     				  # Dossier pour les templates HTML du serveur web
 │   └── index.html                 				  # Template principal pour afficher les résultats sur la page web
