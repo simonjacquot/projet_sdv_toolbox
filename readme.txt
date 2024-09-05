@@ -43,7 +43,7 @@ projet_sdv_toolbox/				   # Répertoire racine du projet
 ├── setup_metasploit_rpc.py      		# Configure le service RPC de Metasploit
 ├── summarize_wapiti.py         		# Résume les résultats du scan Wapiti dans un fichier CSV
 ├── summarize_wpscan.py         		# Résume les résultats du scan WPScan dans un fichier CSV
-├── url_scan.py                 	    # Effectue un scan de répertoires à l'aide de Gobuster
+├── url_scan.py                 	          # Effectue un scan de répertoires à l'aide de Gobuster
 ├── vuln_scan.py                		  # Lance Wapiti pour analyser les vulnérabilités web
 ├── whatweb.py                 		          # Identifie les technologies et applications d'un site web
 ├── wordpress_scan.py           		  # Lance WPScan sur un site WordPress
