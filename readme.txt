@@ -49,19 +49,19 @@ projet_sdv_toolbox/				                      # Répertoire racine du projet
 ├── wordpress_scan.py           					  # Lance WPScan sur un site WordPress
 ├── results/                       					  # Répertoire où sont déplacés tous les fichiers de résultats pour une cible donnée
 │   └── target_date/               					  # Sous-répertoire pour chaque cible (target) et date du scan
-│       ├── nmap_scan_target.csv               	      # Résultats du scan Nmap
-│       ├── gobuster_scan_target_80.csv        	      # Résultats du scan Gobuster pour le port 80
-│       ├── gobuster_scan_target_443.csv       	      # Résultats du scan Gobuster pour le port 443
-│       ├── wpscan_target.json                 	      # Résultats du scan WPScan
-│       ├── wpscan_target_summary.csv          	      # Résumé des résultats WPScan
-│       ├── wapiti_scan_target.json            	      # Résultats du scan Wapiti
-│       ├── wapiti_scan_target_summary.csv     	      # Résumé des résultats Wapiti
-│       ├── cve_cwe_extraction_target.csv          	  # Extraction des CVE et CWE détectées
-│       ├── exploit_results_target.csv         	      # Résultats des exploits tentés
-│       ├── brute_force_results_target.csv      	  # Résultats des tentatives de brute force
-│       ├── whatweb_results_target.csv         	      # Résultats du scan WhatWeb
-│       ├── metasploit_app_target.csv                         # Résultats des exploits Metasploit pour les applications détectées
-│       ├── summary_results_target.csv                        # Résumé général des résultats
+│       ├── nmap_scan_target.csv                  # Résultats du scan Nmap
+│       ├── gobuster_scan_target_80.csv           # Résultats du scan Gobuster pour le port 80
+│       ├── gobuster_scan_target_443.csv          # Résultats du scan Gobuster pour le port 443
+│       ├── wpscan_target.json                    # Résultats du scan WPScan
+│       ├── wpscan_target_summary.csv             # Résumé des résultats WPScan
+│       ├── wapiti_scan_target.json               # Résultats du scan Wapiti
+│       ├── wapiti_scan_target_summary.csv        # Résumé des résultats Wapiti
+│       ├── cve_cwe_extraction_target.csv         # Extraction des CVE et CWE détectées
+│       ├── exploit_results_target.csv            # Résultats des exploits tentés
+│       ├── brute_force_results_target.csv        # Résultats des tentatives de brute force
+│       ├── whatweb_results_target.csv            # Résultats du scan WhatWeb
+│       ├── metasploit_app_target.csv             # Résultats des exploits Metasploit pour les applications détectées
+│       ├── summary_results_target.csv            # Résumé général des résultats
 
 ####################################Fin de présentation de l'architecture#####################################
 
