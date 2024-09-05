@@ -30,14 +30,14 @@ projet_sdv_toolbox/				   # Répertoire racine du projet
 ├── templates/                     		# Dossier pour les templates HTML du serveur web
 │   └── index.html                 		# Template principal pour afficher les résultats sur la page web
 └── results/                                            # Dossier contenant les résultats des scans et analyses
-├── app.py                     			# Script principal qui exécute tous les autres scripts
-├── bruteforce.py               		# Script pour effectuer des attaques de brute force
-├── exploit_appli.py            		# Exploite des vulnérabilités liées aux applications
-├── exploit_cve_cwe.py          		# Exploite les CVE et CWE trouvées
-├── extract_cve_cwe.py          		# Extrait les CVE et CWE des résultats de scan
-├── move.py                     		# Déplace les fichiers de résultats dans des dossiers spécifiques
-├── nmap_scan.py                	    # Effectue un scan Nmap
-├── README.md                   	    # Fichier d'explication du projet (à compléter)
+├── app.py                     			  # Script principal qui exécute tous les autres scripts
+├── bruteforce.py               		  # Script pour effectuer des attaques de brute force
+├── exploit_appli.py            		  # Exploite des vulnérabilités liées aux applications
+├── exploit_cve_cwe.py          		  # Exploite les CVE et CWE trouvées
+├── extract_cve_cwe.py          		  # Extrait les CVE et CWE des résultats de scan
+├── move.py                     		  # Déplace les fichiers de résultats dans des dossiers spécifiques
+├── nmap_scan.py                	        # Effectue un scan Nmap
+├── README.md                   	        # Fichier d'explication du projet (à compléter)
 ├── resume_results.py           		  # Crée un résumé des résultats des différents scans
 ├── serveur_web.py              		  # Lancement du serveur web Flask pour afficher les résultats
 ├── setup_metasploit_rpc.py      		  # Configure le service RPC de Metasploit
