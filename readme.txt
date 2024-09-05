@@ -1,5 +1,8 @@
 # Projet SDV Toolbox
 
+## CONTEXTE 
+  
+
 ## Description
 Ce projet est une boîte à outils automatisée de tests de sécurité pour une cible spécifique, telle qu'une application web ou un serveur. Il utilise plusieurs outils de sécurité (Nmap, Gobuster, WPScan, Wapiti, etc.) pour effectuer une analyse complète des vulnérabilités et en extraire des résultats exploitables. Le projet génère un rapport sous forme de fichiers CSV et propose également un serveur web pour visualiser les résultats sous forme de tableaux et graphiques.
 
@@ -18,6 +21,51 @@ Ce projet est une boîte à outils automatisée de tests de sécurité pour une 
   - WPScan
   - Wapiti
   - Metasploit Framework
+
+## Présentation de l'architecture
+
+projet_sdv_toolbox/				  # Répertoire racine du projet
+├── static/                        					# Dossier pour les fichiers statiques (CSS, JS, images)
+│   ├── style.css                  					# Feuille de style pour la mise en forme de l'interface web
+│   ├── pdf_style.css                  			# Feuille de style pour la mise en forme du pdf
+│   └── script.js                  					# Fichier JavaScript pour les fonctionnalités dynamiques du tableau de bord
+├── templates/                     					# Dossier pour les templates HTML du serveur web
+│   └── index.html                 					# Template principal pour afficher les résultats sur la page web
+└── results/                                     # Dossier contenant les résultats des scans et analyses
+├── app.py                     						# Script principal qui exécute tous les autres scripts
+├── bruteforce.py               						# Script pour effectuer des attaques de brute force
+├── exploit_appli.py            						# Exploite des vulnérabilités liées aux applications
+├── exploit_cve_cwe.py          						# Exploite les CVE et CWE trouvées
+├── extract_cve_cwe.py          						# Extrait les CVE et CWE des résultats de scan
+├── move.py                     						# Déplace les fichiers de résultats dans des dossiers spécifiques
+├── nmap_scan.py                						# Effectue un scan Nmap
+├── README.md                   						# Fichier d'explication du projet (à compléter)
+├── resume_results.py           						# Crée un résumé des résultats des différents scans
+├── serveur_web.py              						# Lancement du serveur web Flask pour afficher les résultats
+├── setup_metasploit_rpc.py      					# Configure le service RPC de Metasploit
+├── summarize_wapiti.py         						# Résume les résultats du scan Wapiti dans un fichier CSV
+├── summarize_wpscan.py         						# Résume les résultats du scan WPScan dans un fichier CSV
+├── url_scan.py                 						# Effectue un scan de répertoires à l'aide de Gobuster
+├── vuln_scan.py                						# Lance Wapiti pour analyser les vulnérabilités web
+├── whatweb.py                 						# Identifie les technologies et applications d'un site web
+├── wordpress_scan.py           						# Lance WPScan sur un site WordPress
+├── results/                       					# Répertoire où sont déplacés tous les fichiers de résultats pour une cible donnée
+│   └── target_date/               					# Sous-répertoire pour chaque cible (target) et date du scan
+│       ├── nmap_scan_target.csv               	# Résultats du scan Nmap
+│       ├── gobuster_scan_target_80.csv        	# Résultats du scan Gobuster pour le port 80
+│       ├── gobuster_scan_target_443.csv       	# Résultats du scan Gobuster pour le port 443
+│       ├── wpscan_target.json                 	# Résultats du scan WPScan
+│       ├── wpscan_target_summary.csv          	# Résumé des résultats WPScan
+│       ├── wapiti_scan_target.json            	# Résultats du scan Wapiti
+│       ├── wapiti_scan_target_summary.csv     	# Résumé des résultats Wapiti
+│       ├── cve_cwe_extraction_target.csv      	# Extraction des CVE et CWE détectées
+│       ├── exploit_results_target.csv         	# Résultats des exploits tentés
+│       ├── brute_force_results_target.csv     	# Résultats des tentatives de brute force
+│       ├── whatweb_results_target.csv         	# Résultats du scan WhatWeb
+│       ├── metasploit_app_target.csv          	# Résultats des exploits Metasploit pour les applications détectées
+│       ├── summary_results_target.csv         	# Résumé général des résultats
+
+
 
 ## Instructions d'installation
 Pour lancer le projet, il suffit de cloner ce dépôt sur une nouvelle machine Kali Linux, puis d'exécuter le script principal 'app.py', qui se chargera automatiquement de l'installation des dépendances et du lancement des analyses.
