@@ -38,11 +38,11 @@ projet_sdv_toolbox/				   # Répertoire racine du projet
 ├── move.py                     		# Déplace les fichiers de résultats dans des dossiers spécifiques
 ├── nmap_scan.py                	    # Effectue un scan Nmap
 ├── README.md                   	    # Fichier d'explication du projet (à compléter)
-├── resume_results.py           		# Crée un résumé des résultats des différents scans
-├── serveur_web.py              		# Lancement du serveur web Flask pour afficher les résultats
-├── setup_metasploit_rpc.py      		# Configure le service RPC de Metasploit
-├── summarize_wapiti.py         		# Résume les résultats du scan Wapiti dans un fichier CSV
-├── summarize_wpscan.py         		# Résume les résultats du scan WPScan dans un fichier CSV
+├── resume_results.py           		  # Crée un résumé des résultats des différents scans
+├── serveur_web.py              		  # Lancement du serveur web Flask pour afficher les résultats
+├── setup_metasploit_rpc.py      		  # Configure le service RPC de Metasploit
+├── summarize_wapiti.py         		  # Résume les résultats du scan Wapiti dans un fichier CSV
+├── summarize_wpscan.py         		  # Résume les résultats du scan WPScan dans un fichier CSV
 ├── url_scan.py                 	          # Effectue un scan de répertoires à l'aide de Gobuster
 ├── vuln_scan.py                		  # Lance Wapiti pour analyser les vulnérabilités web
 ├── whatweb.py                 		          # Identifie les technologies et applications d'un site web
