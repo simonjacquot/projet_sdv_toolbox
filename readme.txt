@@ -36,8 +36,8 @@ projet_sdv_toolbox/				   # Répertoire racine du projet
 ├── exploit_cve_cwe.py          		  # Exploite les CVE et CWE trouvées
 ├── extract_cve_cwe.py          		  # Extrait les CVE et CWE des résultats de scan
 ├── move.py                     		  # Déplace les fichiers de résultats dans des dossiers spécifiques
-├── nmap_scan.py                	        # Effectue un scan Nmap
-├── README.md                   	        # Fichier d'explication du projet (à compléter)
+├── nmap_scan.py                	           # Effectue un scan Nmap
+├── README.md                   	           # Fichier d'explication du projet (à compléter)
 ├── resume_results.py           		  # Crée un résumé des résultats des différents scans
 ├── serveur_web.py              		  # Lancement du serveur web Flask pour afficher les résultats
 ├── setup_metasploit_rpc.py      		  # Configure le service RPC de Metasploit
