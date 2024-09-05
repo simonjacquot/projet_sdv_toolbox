@@ -47,7 +47,7 @@ projet_sdv_toolbox/				  # Répertoire racine du projet
 ├── vuln_scan.py                		  # Lance Wapiti pour analyser les vulnérabilités web
 ├── whatweb.py                 		          # Identifie les technologies et applications d'un site web
 ├── wordpress_scan.py           		  # Lance WPScan sur un site WordPress
-├── results/                       		  # Répertoire où sont déplacés tous les fichiers de résultats pour une cible donnée
+├── results/                       		  # Répertoire où sont déplacés tous les résultats pour une cible donnée
 │   └── target_date/                              # Sous-répertoire pour chaque cible (target) et date du scan
 │       ├── nmap_scan_target.csv                  # Résultats du scan Nmap
 │       ├── gobuster_scan_target_80.csv           # Résultats du scan Gobuster pour le port 80
