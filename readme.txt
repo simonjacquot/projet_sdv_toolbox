@@ -29,7 +29,7 @@ projet_sdv_toolbox/				                  # Répertoire racine du projet
 │   └── script.js                  				  # Fichier JavaScript pour les fonctionnalités dynamiques du tableau de bord
 ├── templates/                     				  # Dossier pour les templates HTML du serveur web
 │   └── index.html                 				  # Template principal pour afficher les résultats sur la page web
-└── results/                                                     # Dossier contenant les résultats des scans et analyses
+└── results/                                                      # Dossier contenant les résultats des scans et analyses
 ├── app.py                     					  # Script principal qui exécute tous les autres scripts
 ├── bruteforce.py               				  # Script pour effectuer des attaques de brute force
 ├── exploit_appli.py            				  # Exploite des vulnérabilités liées aux applications
