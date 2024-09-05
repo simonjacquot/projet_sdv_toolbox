@@ -60,8 +60,8 @@ projet_sdv_toolbox/				                      # Répertoire racine du projet
 │       ├── exploit_results_target.csv         	      # Résultats des exploits tentés
 │       ├── brute_force_results_target.csv      	  # Résultats des tentatives de brute force
 │       ├── whatweb_results_target.csv         	      # Résultats du scan WhatWeb
-│       ├── metasploit_app_target.csv          	      # Résultats des exploits Metasploit pour les applications détectées
-│       ├── summary_results_target.csv         	      # Résumé général des résultats
+│       ├── metasploit_app_target.csv                         # Résultats des exploits Metasploit pour les applications détectées
+│       ├── summary_results_target.csv                        # Résumé général des résultats
 
 ####################################Fin de présentation de l'architecture#####################################
 
