@@ -22,7 +22,7 @@
 
 #######################################Présentation de l'architecture#########################################
 
-projet_sdv_toolbox/				        # Répertoire racine du projet
+projet_sdv_toolbox/				   # Répertoire racine du projet
 ├── static/                        		# Dossier pour les fichiers statiques (CSS, JS, images)
 │   ├── style.css                  		# Feuille de style pour la mise en forme de l'interface web
 │   ├── pdf_style.css                  			# Feuille de style pour la mise en forme du pdf
