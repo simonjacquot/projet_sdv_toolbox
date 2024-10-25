@@ -24,6 +24,10 @@ Ce projet est une boîte à outils automatisée de tests de sécurité pour une 
 - Système d'exploitation : Kali Linux à jour téléchargeable ici : https://www.kali.org/get-kali/#kali-virtual-machines
 - Aucune restriction de flux ne doit s'appliquer sur l'environnement Kali utilisé 
 - Exécution avec un utilisateur ayant les droits de lecture et d'écriture
+- Votre Kali Linux doit impérativement être à jour :
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   ```
 
 ## **Présentation de l'architecture**
 
