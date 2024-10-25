@@ -69,7 +69,7 @@ projet_sdv_toolbox/				  # Répertoire racine du projet
 Pour lancer le projet, il suffit de cloner ce dépôt sur une nouvelle machine Kali Linux, puis d'exécuter le script principal 'app.py', qui se chargera automatiquement de l'installation des dépendances et du lancement des analyses.
 
 1. Télécharger le projet :
- '''bash
+ ```bash
    git clone https://github.com/simonjacquot/projet_sdv_toolbox.git
    cd projet_sdv_toolbox
    
