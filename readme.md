@@ -96,7 +96,7 @@ Pour lancer le projet, il suffit de cloner ce dépôt sur une nouvelle machine K
    Pour démarrer :
 
    ```bash
-   sudo python app.py
+   sudo python3 app.py
    ```
 
 3. **Exemple d'utilisation** :
