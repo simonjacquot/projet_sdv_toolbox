@@ -1,6 +1,5 @@
 import subprocess
 import os
-import sys
 
 def run_command(command, use_shell=False):
     """
@@ -29,7 +28,7 @@ def run_script_in_venv(venv_path, script_name, *args):
         *args: Arguments supplémentaires à passer au script Python.
     """
     # Localisation de l'exécutable Python dans le venv
-    python_venv = os.path.join(venv_path, "bin", "python")
+    python_venv = os.path.join(venv_path, "bin", "python3.11")
     command = [python_venv, script_name] + list(args)
     
     try:
@@ -44,20 +43,15 @@ def main():
     Fonction principale qui exécute toutes les étapes nécessaires à l'installation des dépendances,
     à la configuration de l'environnement virtuel et à l'exécution des différents scripts d'analyse.
     """
-    # Détecter la version de Python
-    python_version = sys.version_info
-    python_major_minor = f"{python_version.major}.{python_version.minor}"
-    python_cmd = f"python{python_major_minor}"
-
     # Demander à l'utilisateur l'adresse IP ou le nom de domaine cible
     target = input("Veuillez entrer l'adresse IP ou le nom DNS de la cible: ")
 
     # Commande d'installation des outils et création de l'environnement virtuel (venv)
     setup_commands = f'''
     apt update &&
-    apt install -y {python_cmd}-venv &&
+    apt install -y python3.11 python3.11-venv python3.11-dev &&
     apt-get install -y gobuster wpscan python3-nmap &&
-    {python_cmd} -m venv venv &&
+    python3.11 -m venv venv &&
     source venv/bin/activate &&
     pip install --upgrade pip setuptools &&
     pip install -r requirements.txt
