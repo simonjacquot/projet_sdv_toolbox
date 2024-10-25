@@ -1,5 +1,6 @@
 import subprocess
 import os
+import sys
 
 def run_command(command, use_shell=False):
     """
@@ -11,10 +12,8 @@ def run_command(command, use_shell=False):
     """
     try:
         if use_shell:
-            # Exécution de la commande dans un sous-shell
             subprocess.run(command, shell=True, check=True, executable="/bin/bash")
         else:
-            # Exécution sans sous-shell
             subprocess.run(command, check=True)
         print(f"Commande '{command}' exécutée avec succès.")
     except subprocess.CalledProcessError as e:
@@ -30,7 +29,7 @@ def run_script_in_venv(venv_path, script_name, *args):
         *args: Arguments supplémentaires à passer au script Python.
     """
     # Localisation de l'exécutable Python dans le venv
-    python_venv = os.path.join(venv_path, "bin", "python3")
+    python_venv = os.path.join(venv_path, "bin", "python")
     command = [python_venv, script_name] + list(args)
     
     try:
@@ -45,14 +44,20 @@ def main():
     Fonction principale qui exécute toutes les étapes nécessaires à l'installation des dépendances,
     à la configuration de l'environnement virtuel et à l'exécution des différents scripts d'analyse.
     """
+    # Détecter la version de Python
+    python_version = sys.version_info
+    python_major_minor = f"{python_version.major}.{python_version.minor}"
+    python_cmd = f"python{python_major_minor}"
+
     # Demander à l'utilisateur l'adresse IP ou le nom de domaine cible
     target = input("Veuillez entrer l'adresse IP ou le nom DNS de la cible: ")
 
     # Commande d'installation des outils et création de l'environnement virtuel (venv)
     setup_commands = f'''
-    apt install -y python3.11-venv &&
+    apt update &&
+    apt install -y {python_cmd}-venv &&
     apt-get install -y gobuster wpscan python3-nmap &&
-    python3 -m venv venv &&
+    {python_cmd} -m venv venv &&
     source venv/bin/activate &&
     pip install --upgrade pip setuptools &&
     pip install -r requirements.txt
