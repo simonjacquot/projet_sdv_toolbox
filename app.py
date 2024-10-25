@@ -28,7 +28,7 @@ def run_script_in_venv(venv_path, script_name, *args):
         *args: Arguments supplémentaires à passer au script Python.
     """
     # Localisation de l'exécutable Python dans le venv
-    python_venv = os.path.join(venv_path, "bin", "python3.11")
+    python_venv = os.path.join(venv_path, "bin", "python3")
     command = [python_venv, script_name] + list(args)
     
     try:
@@ -49,9 +49,9 @@ def main():
     # Commande d'installation des outils et création de l'environnement virtuel (venv)
     setup_commands = f'''
     apt update &&
-    apt install -y python3.11 python3.11-venv python3.11-dev &&
+    apt install -y python3 python3-venv python3-dev &&
     apt-get install -y gobuster wpscan python3-nmap &&
-    python3.11 -m venv venv &&
+    python3 -m venv venv &&
     source venv/bin/activate &&
     pip install --upgrade pip setuptools &&
     pip install -r requirements.txt
