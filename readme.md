@@ -125,7 +125,3 @@ Temps moyen d'attente pour la réalisation : 15 min
 Ouverture automatique du rapport à l'adresse suivante : `http://127.0.0.1:5000`
 
 ### **Fin de rappel des commandes**
-
----
-
-Ce texte est prêt pour un copier-coller direct dans ton fichier `README.md`.
