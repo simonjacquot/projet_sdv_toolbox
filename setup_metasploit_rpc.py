@@ -3,17 +3,22 @@ import subprocess
 import time
 from pymetasploit3.msfrpc import MsfRpcClient
 
-def run_command(command):
+def run_command(command, use_shell=False):
     """
     Exécute une commande shell et vérifie son succès.
 
     Args:
-        command (list): Liste des commandes et arguments à exécuter.
+        command (list/str): Liste des commandes et arguments à exécuter.
+        use_shell (bool): Indique si la commande doit être exécutée dans un shell.
     """
     try:
-        subprocess.run(command, check=True)
+        if use_shell:
+            subprocess.run(command, shell=True, check=True, executable="/bin/bash")
+        else:
+            subprocess.run(command, check=True)
+        print(f"Commande '{command}' exécutée avec succès.")
     except subprocess.CalledProcessError as e:
-        print(f"Erreur lors de l'exécution de la commande : {' '.join(command)}")
+        print(f"Erreur lors de l'exécution de la commande : {command}")
         print(f"Code d'erreur : {e.returncode}")
         print(f"Sortie : {e.output}")
         exit(1)
@@ -31,26 +36,18 @@ def install_metasploit():
         run_command(["sudo", "apt-get", "install", "-y", "metasploit-framework"])
         print("Metasploit a été installé avec succès.")
 
-def install_pip():
+def install_pymetasploit3_in_venv():
     """
-    Vérifie si pip est installé. Si non, l'installe.
+    Installe la bibliothèque pymetasploit3 pour interagir avec l'API de Metasploit
+    dans l'environnement virtuel.
     """
+    venv_path = os.path.abspath("venv")
+    python_venv = os.path.join(venv_path, "bin", "pip")
+    
     try:
-        subprocess.run(["pip", "--version"], check=True)
-        print("pip est déjà installé.")
-    except subprocess.CalledProcessError:
-        print("pip n'est pas installé. Installation en cours...")
-        run_command(["sudo", "apt-get", "install", "-y", "python3-pip"])
-        print("pip a été installé avec succès.")
-
-def install_pymetasploit3():
-    """
-    Installe la bibliothèque pymetasploit3 pour interagir avec l'API de Metasploit.
-    """
-    try:
-        print("Installation de pymetasploit3...")
-        run_command(["pip", "install", "pymetasploit3"])
-        print("pymetasploit3 a été installé avec succès.")
+        print("Installation de pymetasploit3 dans l'environnement virtuel...")
+        run_command([python_venv, "install", "pymetasploit3"])
+        print("pymetasploit3 a été installé avec succès dans l'environnement virtuel.")
     except subprocess.CalledProcessError as e:
         print(f"Erreur lors de l'installation de pymetasploit3 : {e}")
         exit(1)
@@ -60,7 +57,7 @@ def start_msfrpcd():
     Démarre le service RPC de Metasploit (msfrpcd) pour permettre les interactions avec l'API.
     """
     print("Démarrage de msfrpcd (Metasploit RPC daemon)...")
-    subprocess.Popen(["sudo", "msfrpcd", "-P", "msf", "-S"])
+    subprocess.Popen(["sudo", "msfrpcd", "-P", "msf", "-S", "-p", "55553"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     
     print("Attente de 10 secondes pour que le service RPC démarre...")
     time.sleep(10)  # Attendre 10 secondes pour laisser le service démarrer
@@ -75,12 +72,11 @@ def start_msfrpcd():
 
 def main():
     """
-    Fonction principale pour installer Metasploit, pip, pymetasploit3, et démarrer le service RPC.
+    Fonction principale pour installer Metasploit, pymetasploit3, et démarrer le service RPC.
     """
-    install_metasploit()      # Installation de Metasploit Framework
-    install_pip()             # Installation de pip si nécessaire
-    install_pymetasploit3()   # Installation de pymetasploit3
-    start_msfrpcd()           # Démarrage du service RPC de Metasploit
+    install_metasploit()          # Installation de Metasploit Framework
+    install_pymetasploit3_in_venv()  # Installation de pymetasploit3 dans le venv
+    start_msfrpcd()               # Démarrage du service RPC de Metasploit
     print("Configuration terminée. Le serveur RPC de Metasploit est en cours d'exécution.")
     print("Vous pouvez maintenant exécuter votre script Python.")
 
