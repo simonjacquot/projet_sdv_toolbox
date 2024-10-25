@@ -1,5 +1,3 @@
-Voici le README complet avec chaque titre en gras et les commandes formatées pour être copiables :
-
 ---
 
 # **Projet SDV Toolbox**
