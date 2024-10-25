@@ -1,4 +1,4 @@
-**# Projet SDV Toolbox**
+# **Projet SDV Toolbox**
 
 ## CONTEXTE et OBJECTIFS DU PROJET
 
