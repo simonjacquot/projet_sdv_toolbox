@@ -1,10 +1,8 @@
 ---
 
-# **Projet SDV Toolbox**
+# **Projet Toolbox**
 
 ## **CONTEXTE et OBJECTIFS DU PROJET**
-
-Doli Industry est une entreprise industrielle opérant à l'échelle internationale, qui cherche à renforcer la sécurité de ses systèmes d'information en automatisant ses tests d'intrusion. Actuellement, les tests sont réalisés manuellement, ce qui est long, couvre une portée limitée et rend l'analyse des résultats complexe.
 
 Objectifs du projet : Développer une toolbox automatisée pour les tests d'intrusion afin de :
 
